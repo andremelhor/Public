@@ -78,13 +78,31 @@
             </tr>
         </thead>
         <tbody>
+
+<!-- 
+Como marcar como pago agora?
+Daqui a um mês, quando você pagar a primeira parcela, você vai abrir o VS Code e fazer isso aqui na linha da parcela 1:
+
+ANTES (Como está agora):
+HTML
+<input type="checkbox" disabled>
+DEPOIS (Para marcar como pago): Você adiciona a palavra checked dentro da tag.
+HTML
+<input type="checkbox" checked disabled>
+Só isso! O Script que eu coloquei no final da página vai detectar esse checked, vai pintar a linha de verde, riscar o texto e mudar "Aberto" para "PAGO ✅" automaticamente.
+
+Salve, faça o Commit e o Push, e o site atualizará para todos com a nova situação.            
+-->
+
+
+
             
             <tr>
-                <td style="text-align: center;"><input type="checkbox" disabled></td>
+                <td style="text-align: center;"><input type="checkbox" checked disabled></td>
                 <td>01ª Parcela</td>
                 <td>05 Dez 2025</td>
                 <td>R$ 54,46</td>
-                <td class="status-badge">Aberto</td>
+                <td class="status-badge">PAGO</td>
             </tr>
 
             <tr>
