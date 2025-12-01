@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle da Guitarra 🎸</title>
+    <style>
+        /* Estilo Geral (Dark Mode) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e1e; /* Fundo escuro igual VS Code */
+            color: #d4d4d4;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #252526;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            max-width: 800px;
+            width: 100%;
+            border: 1px solid #3e3e42;
+        }
+
+        /* Cabeçalho */
+        h1 {
+            color: #4ec9b0; /* Verde estilo código */
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .resumo {
+            text-align: center;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #ce9178; /* Laranja suave */
+            font-weight: bold;
+        }
+
+        /* Tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: #333333;
+            color: #fff;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #4ec9b0;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #3e3e42;
+        }
+
+        tr:hover {
+            background-color: #2d2d30; /* Efeito ao passar o mouse */
+        }
+
+        /* Checkbox customizado */
+        input[type="checkbox"] {
+            transform: scale(1.5);
+            cursor: pointer;
+            accent-color: #4ec9b0;
+        }
+
+        /* Estilo quando está pago */
+        .pago {
+            text-decoration: line-through;
+            color: #6a9955; /* Verde escuro */
+            font-style: italic;
+        }
+
+        .status-badge {
+            font-weight: bold;
+            color: #dcdcaa; /* Amarelo claro para 'Aberto' */
+        }
+        
+        /* Ajuste para celular */
+        @media (max-width: 600px) {
+            th, td { font-size: 14px; padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🎸 Despesas da Guitarra</h1>
+    <div class="resumo">Valor Total: R$ 653,62</div>
+
+    <table id="tabela-parcelas">
+        <thead>
+            <tr>
+                <th style="text-align: center;">Pago?</th>
+                <th>Parcela</th>
+                <th>Vencimento</th>
+                <th>Valor</th>
+                <th>Situação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p1" onclick="atualizarStatus(this)"></td>
+                <td>01ª Parcela</td>
+                <td>05 Dez 2025</td>
+                <td>R$ 54,46</td>
+                <td class="status-badge" id="s1">Aberto</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p2" onclick="atualizarStatus(this)"></td>
+                <td>02ª Parcela</td>
+                <td>05 Jan 2026</td>
+                <td>R$ 54,46</td>
+                <td class="status-badge" id="s2">Aberto</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p3" onclick="atualizarStatus(this)"></td>
+                <td>03ª Parcela</td>
+                <td>05 Fev 2026</td>
+                <td>R$ 54,47</td>
+                <td class="status-badge" id="s3">Aberto</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p4" onclick="atualizarStatus(this)"></td>
+                <td>04ª Parcela</td>
+                <td>05 Mar 2026</td>
+                <td>R$ 54,47</td>
+                <td class="status-badge" id="s4">Aberto</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p5" onclick="atualizarStatus(this)"></td>
+                <td>05ª Parcela</td>
+                <td>05 Abr 2026</td>
+                <td>R$ 54,47</td>
+                <td class="status-badge" id="s5">Aberto</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p6" onclick="atualizarStatus(this)"></td>
+                <td>06ª Parcela</td>
+                <td>05 Mai 2026</td>
+                <td>R$ 54,47</td>
+                <td class="status-badge" id="s6">Aberto</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p7" onclick="atualizarStatus(this)"></td>
+                <td>07ª Parcela</td>
+                <td>05 Jun 2026</td>
+                <td>R$ 54,47</td>
+                <td class="status-badge" id="s7">Aberto</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p8" onclick="atualizarStatus(this)"></td>
+                <td>08ª Parcela</td>
+                <td>05 Jul 2026</td>
+                <td>R$ 54,47</td>
+                <td class="status-badge" id="s8">Aberto</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p9" onclick="atualizarStatus(this)"></td>
+                <td>09ª Parcela</td>
+                <td>05 Ago 2026</td>
+                <td>R$ 54,47</td>
+                <td class="status-badge" id="s9">Aberto</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p10" onclick="atualizarStatus(this)"></td>
+                <td>10ª Parcela</td>
+                <td>05 Set 2026</td>
+                <td>R$ 54,47</td>
+                <td class="status-badge" id="s10">Aberto</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p11" onclick="atualizarStatus(this)"></td>
+                <td>11ª Parcela</td>
+                <td>05 Out 2026</td>
+                <td>R$ 54,47</td>
+                <td class="status-badge" id="s11">Aberto</td>
+            </tr>
+            <tr>
+                <td style="text-align: center;"><input type="checkbox" id="p12" onclick="atualizarStatus(this)"></td>
+                <td>12ª Parcela</td>
+                <td>05 Nov 2026</td>
+                <td>R$ 54,47</td>
+                <td class="status-badge" id="s12">Aberto</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // Função para carregar o status salvo ao abrir a página
+    window.onload = function() {
+        for (let i = 1; i <= 12; i++) {
+            let id = 'p' + i;
+            let checked = localStorage.getItem(id);
+            if (checked === 'true') {
+                document.getElementById(id).checked = true;
+                atualizarVisual(document.getElementById(id));
+            }
+        }
+    };
+
+    // Função que roda quando clica no checkbox
+    function atualizarStatus(checkbox) {
+        atualizarVisual(checkbox);
+        // Salva no navegador para não perder quando fechar
+        localStorage.setItem(checkbox.id, checkbox.checked);
+    }
+
+    // Função que muda a cor e o texto
+    function atualizarVisual(checkbox) {
+        let linha = checkbox.parentElement.parentElement;
+        let textoStatus = document.getElementById('s' + checkbox.id.substring(1));
+
+        if (checkbox.checked) {
+            linha.classList.add('pago');
+            textoStatus.innerText = "PAGO ✅";
+            textoStatus.style.color = "#4ec9b0";
+        } else {
+            linha.classList.remove('pago');
+            textoStatus.innerText = "Aberto";
+            textoStatus.style.color = "#dcdcaa";
+        }
+    }
+</script>
+
+</body>
+</html>
